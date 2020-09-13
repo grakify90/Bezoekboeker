@@ -123,72 +123,74 @@ export const Boeker = (props) => {
   return (
     <div>
       <img
-        style={{ width: "100vw" }}
+        className="backgroundPicture"
         src={require("../images/iStock-503590178.jpg")}
         alt="Two girls talking and laughing"
       />
-      <div className="personenContainer">
-        <div className="innerContainer">
-          <h1>Reserveer jouw bezoek bij De Kunsthal</h1>
-          <div className="personenInnerContainer">
-            <h3>Personen</h3>
-            <p>Met hoeveel personen kom je?</p>
-          </div>
+      <div className="desktopContainer">
+        <div className="personenContainer">
+          <div className="innerContainer">
+            <h1>Reserveer jouw bezoek bij De Kunsthal</h1>
+            <div className="personenInnerContainer">
+              <h3>Personen</h3>
+              <p>Met hoeveel personen kom je?</p>
+            </div>
 
-          <div className="personenScrollBar">
-            {peopleArray.map((person, index) => {
-              return (
-                <Person
-                  key={index}
-                  number={person.number}
-                  image={person.image}
-                  selected={person.selected}
-                  callback={setNumberOfPeople}
-                />
-              );
-            })}
+            <div className="personenScrollBar">
+              {peopleArray.map((person, index) => {
+                return (
+                  <Person
+                    key={index}
+                    number={person.number}
+                    image={person.image}
+                    selected={person.selected}
+                    callback={setNumberOfPeople}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
-      </div>
-      <div className="datumContainer">
-        <div className="innerContainer">
-          <div className="datumInnerContainer">
-            <h3>Plan je bezoek</h3>
-            <p>Wanneer wil je langskomen?</p>
-          </div>
-          <div className="form-group">
-            <DatePicker
-              selected={date}
-              onChange={handleChange}
-              minDate={today}
-              locale="nl"
-              inline
-            />
+        <div className="datumContainer">
+          <div className="innerContainer">
+            <div className="datumInnerContainer">
+              <h3>Plan je bezoek</h3>
+              <p>Wanneer wil je langskomen?</p>
+            </div>
+            <div className="form-group">
+              <DatePicker
+                selected={date}
+                onChange={handleChange}
+                minDate={today}
+                locale="nl"
+                inline
+              />
+            </div>
           </div>
         </div>
-      </div>
-      <div className="tijdContainer">
-        <div className="innerContainer">
-          <div className="tijdInnerContainer">
-            <h3>Selecteer een tijdslot</h3>
-            <p>Hoelaat wil je ongeveer langskomen?</p>
-          </div>
-          <div className="tijdScrollBar">
-            {timeslotArray.map((time, index) => {
-              return (
-                <Timeslot
-                  key={index}
-                  start={time.start}
-                  end={time.end}
-                  selected={time.selected}
-                  callback={setTimeslot}
-                />
-              );
-            })}
-          </div>
-          <div className="verderButton" onClick={goToConfirmation}>
-            <p>Verder</p>
-            <img src={require("../images/arrow.png")} alt="Arrow right" />
+        <div className="tijdContainer">
+          <div className="innerContainer">
+            <div className="tijdInnerContainer">
+              <h3>Selecteer een tijdslot</h3>
+              <p>Hoelaat wil je ongeveer langskomen?</p>
+            </div>
+            <div className="tijdScrollBar">
+              {timeslotArray.map((time, index) => {
+                return (
+                  <Timeslot
+                    key={index}
+                    start={time.start}
+                    end={time.end}
+                    selected={time.selected}
+                    callback={setTimeslot}
+                  />
+                );
+              })}
+            </div>
+            <div className="verderButton" onClick={goToConfirmation}>
+              <p>Verder</p>
+              <img src={require("../images/arrow.png")} alt="Arrow right" />
+            </div>
           </div>
         </div>
       </div>

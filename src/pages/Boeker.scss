@@ -1,5 +1,9 @@
 @import "../styles/_colors.scss";
 
+.backgroundPicture {
+  width: 100vw;
+}
+
 .innerContainer {
   padding: 20px 20px;
 }
@@ -117,5 +121,68 @@
 
   img {
     height: 20px;
+  }
+}
+
+//Desktop friendly
+@media only screen and (min-width: 600px) {
+  .backgroundPicture {
+    height: 100vh;
+  }
+  .innerContainer {
+    h1 {
+      border-radius: 100px;
+      border: double 8px white;
+      padding: 30px;
+      background-color: $color-forest;
+    }
+  }
+  .personenInnerContainer {
+    margin-top: 80px;
+  }
+  .personenContainer {
+    width: auto !important;
+    position: static;
+    border-radius: 60px 0 0 60px;
+  }
+  .personenScrollBar {
+    width: 30vw;
+  }
+  .datumContainer {
+    width: auto !important;
+    position: static;
+    height: 600px;
+    border-radius: 0;
+  }
+  .form-group {
+    padding-top: 20px;
+    padding-left: 25%;
+  }
+  .tijdContainer {
+    width: auto !important;
+    position: static;
+    height: 600px;
+    border-radius: 0 60px 60px 0;
+  }
+  .tijdScrollBar {
+    padding-top: 50px;
+    width: 30vw;
+  }
+  .desktopContainer {
+    width: 90vw;
+    position: absolute;
+    top: 20vh;
+    left: 5vw;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .verderButton {
+    margin: 90px auto;
+    border: 8px white double;
+
+    :hover {
+      font-weight: bold;
+    }
   }
 }
