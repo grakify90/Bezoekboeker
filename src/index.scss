@@ -45,6 +45,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: $color-forest;
   font-family: "Palanquin-Medium";
+  p {
+    font-family: "Palanquin-Light";
+  }
+  h1 {
+    font-family: "Palanquin-Bold";
+  }
+  h2 {
+    font-family: "Palanquin-Regular";
+  }
 }
 
 code {
