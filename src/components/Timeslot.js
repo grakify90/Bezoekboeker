@@ -8,7 +8,14 @@ export const Timeslot = (props) => {
   return (
     <div
       onClick={callback.bind(null, props.start, props.end)}
-      className="personSlideContainer"
+      style={
+        props.selected
+          ? {
+              backgroundColor: "#607c3c",
+              border: "1px solid #607c3c",
+            }
+          : { backgroundColor: "#abc32f", border: "1px solid white" }
+      }
     >
       <span>{props.start}</span>
       <span>tot</span>

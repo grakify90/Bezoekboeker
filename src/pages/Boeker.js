@@ -15,41 +15,49 @@ const PersonCount = [
   {
     number: 1,
     image: <img src={require("../images/person.png")} alt="one person icon" />,
+    selected: false,
   },
   {
     number: 2,
     image: <img src={require("../images/two.png")} alt="two person icon" />,
+    selected: false,
   },
   {
     number: 3,
     image: <img src={require("../images/three.png")} alt="three person icon" />,
+    selected: false,
   },
   {
     number: 4,
     image: <img src={require("../images/four.png")} alt="four person icon" />,
+    selected: false,
   },
   {
     number: 5,
     image: <img src={require("../images/five.png")} alt="five person icon" />,
+    selected: false,
   },
   {
     number: 6,
     image: <img src={require("../images/six.png")} alt="six person icon" />,
+    selected: false,
   },
 ];
 
 const TimeSlot = [
-  { start: "09:00", end: "10:00" },
-  { start: "10:00", end: "11:00" },
-  { start: "11:00", end: "12:00" },
-  { start: "12:00", end: "13:00" },
-  { start: "13:00", end: "14:00" },
-  { start: "14:00", end: "15:00" },
-  { start: "15:00", end: "16:00" },
-  { start: "16:00", end: "17:00" },
+  { start: "09:00", end: "10:00", selected: false },
+  { start: "10:00", end: "11:00", selected: false },
+  { start: "11:00", end: "12:00", selected: false },
+  { start: "12:00", end: "13:00", selected: false },
+  { start: "13:00", end: "14:00", selected: false },
+  { start: "14:00", end: "15:00", selected: false },
+  { start: "15:00", end: "16:00", selected: false },
+  { start: "16:00", end: "17:00", selected: false },
 ];
 
 export const Boeker = (props) => {
+  const [peopleArray, setPeopleArray] = useState(PersonCount);
+  const [timeslotArray, setTimeslotArray] = useState(TimeSlot);
   //Local state van aantal personen, datum en tijd
   const [totalData, setTotalData] = useState({
     numberOfPeople: null,
@@ -59,7 +67,16 @@ export const Boeker = (props) => {
 
   //Aantal personen picker
   const setNumberOfPeople = (number) => {
+    setPeopleArray(PersonCount);
     setTotalData({ ...totalData, numberOfPeople: number });
+    const newPeopleArray = PersonCount.map((person) => {
+      if (person.number === number) {
+        return { ...person, selected: true };
+      } else {
+        return person;
+      }
+    });
+    setPeopleArray(newPeopleArray);
   };
 
   //Datum picker
@@ -68,15 +85,23 @@ export const Boeker = (props) => {
 
   const handleChange = (date) => {
     const formattedDate = moment(date).format("DD-MM-YYYY");
-    console.log(formattedDate);
     setDate(date);
     setTotalData({ ...totalData, date: formattedDate });
   };
 
   //Tijdsslot picker
   const setTimeslot = (start, end) => {
+    setTimeslotArray(TimeSlot);
     const timeSlotString = `${start} tot ${end}`;
     setTotalData({ ...totalData, time: timeSlotString });
+    const newTimeslotArray = TimeSlot.map((time) => {
+      if (time.start === start) {
+        return { ...time, selected: true };
+      } else {
+        return time;
+      }
+    });
+    setTimeslotArray(newTimeslotArray);
   };
 
   //Naar reservering pagina
@@ -91,9 +116,9 @@ export const Boeker = (props) => {
     }
   };
 
-  useEffect(() => {
-    console.log(totalData);
-  }, [totalData]);
+  // useEffect(() => {
+  //   console.log(totalData);
+  // }, [totalData]);
 
   return (
     <div>
@@ -103,60 +128,68 @@ export const Boeker = (props) => {
         alt="Two girls talking and laughing"
       />
       <div className="personenContainer">
-        <h1>Reserveer jouw bezoek bij De Kunsthal</h1>
-        <div className="personenInnerContainer">
-          <h3>Personen</h3>
-          <p>Met hoeveel personen kom je?</p>
-        </div>
+        <div className="innerContainer">
+          <h1>Reserveer jouw bezoek bij De Kunsthal</h1>
+          <div className="personenInnerContainer">
+            <h3>Personen</h3>
+            <p>Met hoeveel personen kom je?</p>
+          </div>
 
-        <div className="personenScrollBar">
-          {PersonCount.map((person, index) => {
-            return (
-              <Person
-                key={index}
-                number={person.number}
-                image={person.image}
-                callback={setNumberOfPeople}
-              />
-            );
-          })}
+          <div className="personenScrollBar">
+            {peopleArray.map((person, index) => {
+              return (
+                <Person
+                  key={index}
+                  number={person.number}
+                  image={person.image}
+                  selected={person.selected}
+                  callback={setNumberOfPeople}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
       <div className="datumContainer">
-        <div className="datumInnerContainer">
-          <h3>Plan je bezoek</h3>
-          <p>Wanneer wil je langskomen?</p>
-        </div>
-        <div className="form-group">
-          <DatePicker
-            selected={date}
-            onChange={handleChange}
-            minDate={today}
-            locale="nl"
-            inline
-          />
+        <div className="innerContainer">
+          <div className="datumInnerContainer">
+            <h3>Plan je bezoek</h3>
+            <p>Wanneer wil je langskomen?</p>
+          </div>
+          <div className="form-group">
+            <DatePicker
+              selected={date}
+              onChange={handleChange}
+              minDate={today}
+              locale="nl"
+              inline
+            />
+          </div>
         </div>
       </div>
       <div className="tijdContainer">
-        <div className="tijdInnerContainer">
-          <h3>Selecteer een tijdslot</h3>
-          <p>Hoelaat wil je ongeveer langskomen?</p>
-        </div>
-        <div className="tijdScrollBar">
-          {TimeSlot.map((time, index) => {
-            return (
-              <Timeslot
-                key={index}
-                start={time.start}
-                end={time.end}
-                callback={setTimeslot}
-              />
-            );
-          })}
-        </div>
-        <div className="verderButton" onClick={goToConfirmation}>
-          <p>Verder</p>
-          <img src={require("../images/arrow.png")} alt="Arrow right" />
+        <div className="innerContainer">
+          <div className="tijdInnerContainer">
+            <h3>Selecteer een tijdslot</h3>
+            <p>Hoelaat wil je ongeveer langskomen?</p>
+          </div>
+          <div className="tijdScrollBar">
+            {timeslotArray.map((time, index) => {
+              return (
+                <Timeslot
+                  key={index}
+                  start={time.start}
+                  end={time.end}
+                  selected={time.selected}
+                  callback={setTimeslot}
+                />
+              );
+            })}
+          </div>
+          <div className="verderButton" onClick={goToConfirmation}>
+            <p>Verder</p>
+            <img src={require("../images/arrow.png")} alt="Arrow right" />
+          </div>
         </div>
       </div>
     </div>

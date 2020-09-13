@@ -16,9 +16,6 @@ export const Confirmation = (props) => {
   useEffect(() => {
     const totalData = JSON.parse(localStorage.getItem("totalData"));
     setReservationData({ ...totalData });
-    console.log("Reservering aantal mensen: " + reservationData.numberOfPeople);
-    console.log("Reservering datum: " + reservationData.date);
-    console.log("Reservering tijdslot: " + reservationData.time);
   }, []);
 
   return (

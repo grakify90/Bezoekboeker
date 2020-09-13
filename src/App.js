@@ -12,7 +12,7 @@ function App() {
   };
 
   useEffect(() => {
-    setTimeout(() => setScreen(screen + 1), 100);
+    setTimeout(() => setScreen(screen + 1), 900);
   }, []);
 
   return (

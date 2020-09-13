@@ -1,25 +1,30 @@
 @import "../styles/_colors.scss";
 
+.innerContainer {
+  padding: 10px 30px;
+}
+
 .personenContainer {
   background-color: $color-apple;
   color: white;
   line-height: 260%;
-  border: 1px solid $color-apple;
   border-radius: 60px 0 0 0;
   width: 100vw;
-  padding: 10px 20px 120px 20px;
+  height: 500px;
+  padding: 0;
   position: absolute;
   top: 220px;
 }
 
 .personenInnerContainer {
-  margin-top: 40px;
+  margin: 40px 0 30px 0;
   line-height: 1%;
 }
 
 .personenScrollBar {
   overflow: auto;
   white-space: nowrap;
+  width: 370px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
 
@@ -34,7 +39,7 @@
     align-items: center;
 
     img {
-      width: 100%;
+      width: 90%;
     }
   }
 }
@@ -44,44 +49,42 @@
   background-color: white;
   line-height: 260%;
   width: 100vw;
-  border: 1px solid white;
+  height: 500px;
   border-radius: 60px 0 0 0;
-  padding: 10px 20px 120px 20px;
   position: relative;
-  top: 280px;
+  top: 270px;
 }
 
 .datumInnerContainer {
-  margin-top: 40px;
+  margin: 40px 0 10px 0;
   line-height: 1%;
 }
 
 .form-group {
   padding-top: 20px;
-  padding-left: 15%;
+  padding-left: 17%;
 }
 
 .tijdContainer {
   background-color: $color-apple;
   color: white;
   width: 100vw;
+  height: 400px;
   line-height: 260%;
-  border: 1px solid $color-apple;
   border-radius: 60px 0 0 0;
-  padding: 10px 20px 80px 20px;
   position: relative;
-  top: 170px;
+  top: 200px;
 }
 
 .tijdInnerContainer {
-  margin-top: 40px;
+  margin: 40px 0 30px 0;
   line-height: 1%;
 }
 
 .tijdScrollBar {
   overflow: auto;
   white-space: nowrap;
-  width: 100vw;
+  width: 370px;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
 
@@ -89,7 +92,7 @@
     border: 1px solid white;
     border-radius: 5px;
     margin-right: 10px;
-    padding: 20px 10px;
+    padding: 10px 10px;
     width: 50px;
     display: flex;
     flex-direction: column;
