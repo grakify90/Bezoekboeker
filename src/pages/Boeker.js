@@ -58,6 +58,7 @@ const TimeSlot = [
 export const Boeker = (props) => {
   const [peopleArray, setPeopleArray] = useState(PersonCount);
   const [timeslotArray, setTimeslotArray] = useState(TimeSlot);
+
   //Local state van aantal personen, datum en tijd
   const [totalData, setTotalData] = useState({
     numberOfPeople: null,
@@ -106,6 +107,7 @@ export const Boeker = (props) => {
 
   //Naar reservering pagina
   const goToConfirmation = () => {
+    //validatie om te zien of alle velden zijn ingevuld
     if (!totalData.numberOfPeople || !totalData.date || !totalData.time) {
       alert(
         "Voer alsjeblieft het gewenste aantal personen, de datum en het tijdslot in."
@@ -115,10 +117,6 @@ export const Boeker = (props) => {
       localStorage.setItem("totalData", JSON.stringify(totalData));
     }
   };
-
-  // useEffect(() => {
-  //   console.log(totalData);
-  // }, [totalData]);
 
   return (
     <div>

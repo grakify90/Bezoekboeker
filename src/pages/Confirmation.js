@@ -9,6 +9,7 @@ export const Confirmation = (props) => {
   });
   const totalDataString = localStorage.getItem("totalData");
 
+  //hier gebruik ik een API om een Qr Code te genereren
   const QRCODE_API_URL = `http://api.qrserver.com/v1/create-qr-code/?data=[${encodeURIComponent(
     totalDataString
   )}]&size=[100]x[100]`;
