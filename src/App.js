@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+
+import { StartingScreen } from "./pages/StartingScreen";
+import { Boeker } from "./pages/Boeker";
+import { Confirmation } from "./pages/Confirmation";
 
 function App() {
+  const [screen, setScreen] = useState(0);
+
+  const changeScreen = () => {
+    setScreen(2);
+  };
+
+  useEffect(() => {
+    setTimeout(() => setScreen(screen + 1), 100);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {screen === 0 ? (
+        <StartingScreen />
+      ) : screen === 1 ? (
+        <Boeker callback={changeScreen} />
+      ) : (
+        <Confirmation />
+      )}
     </div>
   );
 }

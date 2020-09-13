@@ -1,0 +1,53 @@
+@import "./styles/_colors.scss";
+
+@font-face {
+  font-family: "Palanquin-Bold";
+  src: local("Palanquin-Bold"),
+    url(./styles/fonts/Palanquin-Bold.ttf) format("trueType");
+}
+@font-face {
+  font-family: "Palanquin-ExtraLight";
+  src: local("Palanquin-ExtraLight"),
+    url(./styles/fonts/Palanquin-ExtraLight.ttf) format("trueType");
+}
+@font-face {
+  font-family: "Palanquin-Light";
+  src: local("Palanquin-Light"),
+    url(./styles/fonts/Palanquin-Light.ttf) format("trueType");
+}
+@font-face {
+  font-family: "Palanquin-Medium";
+  src: local("Palanquin-Medium"),
+    url(./styles/fonts/Palanquin-Medium.ttf) format("trueType");
+}
+@font-face {
+  font-family: "Palanquin-Regular";
+  src: local("Palanquin-Regular"),
+    url(./styles/fonts/Palanquin-Regular.ttf) format("trueType");
+}
+@font-face {
+  font-family: "Palanquin-SemiBold";
+  src: local("Palanquin-SemiBold"),
+    url(./styles/fonts/Palanquin-SemiBold.ttf) format("trueType");
+}
+@font-face {
+  font-family: "Palanquin-Thin";
+  src: local("Palanquin-Thin"),
+    url(./styles/fonts/Palanquin-Thin.ttf) format("trueType");
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $color-forest;
+  font-family: "Palanquin-Medium";
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
