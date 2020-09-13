@@ -1,7 +1,7 @@
 @import "../styles/_colors.scss";
 
 .innerContainer {
-  padding: 15px 20px;
+  padding: 20px 20px;
 }
 
 .personenContainer {
@@ -24,7 +24,7 @@
 .personenScrollBar {
   overflow: auto;
   white-space: nowrap;
-  width: 350px;
+  width: 340px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
 
@@ -62,7 +62,7 @@
 
 .form-group {
   padding-top: 20px;
-  padding-left: 9%;
+  padding-left: 8%;
 }
 
 .tijdContainer {
@@ -83,7 +83,7 @@
 .tijdScrollBar {
   overflow: auto;
   white-space: nowrap;
-  width: 350px;
+  width: 340px;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
 
